@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   {
     label: "Home",
-    path: "/#home",
+    path: "/",
     section: "home",
   },
   {
@@ -43,6 +43,7 @@ export default function Navbar() {
     function handleScroll() {
       setScrolled(window.scrollY > 30);
 
+      // Hanya mendeteksi section ketika berada di Home
       if (pathname !== "/") {
         return;
       }
@@ -78,13 +79,15 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
+    // Jika sedang di Home
     if (pathname === "/") {
       setActive("home");
       return;
     }
 
+    // Jika sedang di halaman lain
     const currentItem = menuItems.find(
-      (item) => item.path === pathname,
+      (item) => item.path === pathname
     );
 
     if (currentItem) {
@@ -104,6 +107,8 @@ export default function Navbar() {
       }`}
     >
       <div className="navbar-container">
+
+        {/* LOGO */}
         <Link
           href="/"
           className="logo"
@@ -112,20 +117,24 @@ export default function Navbar() {
           PORT<span>FOLIO.</span>
         </Link>
 
+        {/* NAVIGATION */}
         <nav
           className={`nav-menu ${
             open ? "active" : ""
           }`}
         >
           {menuItems.map((item) => {
-            const isActive = active === item.section;
+            const isActive =
+              active === item.section;
 
             return (
               <Link
                 key={item.label}
                 href={item.path}
                 className={
-                  isActive ? "active-link" : ""
+                  isActive
+                    ? "active-link"
+                    : ""
                 }
                 onClick={() =>
                   handleClick(item.section)
@@ -141,7 +150,9 @@ export default function Navbar() {
           })}
         </nav>
 
+        {/* RIGHT */}
         <div className="navbar-right">
+
           <span className="navbar-status">
             <i></i>
             Available
@@ -159,6 +170,7 @@ export default function Navbar() {
             <span></span>
             <span></span>
           </button>
+
         </div>
       </div>
     </header>

@@ -16,6 +16,7 @@ export default function Home() {
       <ThemeCustomizer />
 
       <main>
+
         <Hero />
 
         <ScrollReveal>
@@ -33,6 +34,7 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <Contact />
         </ScrollReveal>
+
       </main>
 
       <Footer />

@@ -22,10 +22,11 @@ export default function Footer() {
           Designed & Built with Next.js
         </p>
 
-        <a href="#home" className="footer-top">
+        {/* Arahkan ke beranda dengan hash #top */}
+        <Link href="/#top" className="footer-top">
           <span>BACK TO TOP</span>
           <strong>↑</strong>
-        </a>
+        </Link>
       </div>
     </footer>
   );

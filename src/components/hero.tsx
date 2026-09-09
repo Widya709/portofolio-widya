@@ -22,7 +22,7 @@ export default function Hero() {
 
           <div className="hero-role hero-reveal hero-delay-3">
             <span></span>
-            <h2>FULL STACK WEB DEVELOPER</h2>
+            <h2>SOFTWARE ENGINEERING STUDENT</h2>
           </div>
 
           <p className="hero-description hero-reveal hero-delay-4">

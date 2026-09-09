@@ -6447,3 +6447,391 @@ a {
   }
 
 }
+
+.back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 48px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.back-to-top span {
+  color: #8ed8f8;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.back-to-top-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #9bdcf7;
+  color: #18313e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.back-to-top:hover .back-to-top-arrow {
+  transform: translateY(-3px);
+}
+
+@keyframes portfolioFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes portfolioFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes portfolioFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: portfolioFadeIn 0.6s ease-out;
+}
+
+.logo {
+  transition: transform 0.25s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.nav-menu a {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-menu a:hover {
+  transform: translateY(-2px);
+}
+
+.nav-menu a:active {
+  transform: scale(0.96);
+}
+
+.menu-button {
+  transition: transform 0.25s ease;
+}
+
+.menu-button:active {
+  transform: scale(0.9);
+}
+
+.theme-toggle {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.9);
+}
+
+.theme-panel {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-hero {
+  animation: portfolioFadeUp 0.7s ease-out;
+}
+
+.about-profile {
+  animation: portfolioFadeUp 0.8s ease-out 0.1s both;
+}
+
+.about-interests {
+  animation: portfolioFadeUp 0.8s ease-out 0.2s both;
+}
+
+.about-learning {
+  animation: portfolioFadeUp 0.8s ease-out 0.3s both;
+}
+
+.about-photo {
+  overflow: hidden;
+}
+
+.about-photo img {
+  transition: transform 0.6s ease;
+}
+
+.about-photo:hover img {
+  transform: scale(1.04);
+}
+
+.interest-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-6px);
+}
+
+.interest-icon {
+  transition: transform 0.3s ease;
+}
+
+.interest-card:hover .interest-icon {
+  transform: scale(1.08);
+}
+
+.interest-arrow {
+  transition: transform 0.3s ease;
+}
+
+.interest-card:hover .interest-arrow {
+  transform: translate(4px, -4px);
+}
+
+.learning-list span {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.learning-list span:hover {
+  transform: translateY(-3px);
+}
+
+.project-item {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+  overflow: hidden;
+}
+
+.project-image-img {
+  transition: transform 0.6s ease;
+}
+
+.project-item:hover .project-image-img {
+  transform: scale(1.05);
+}
+
+.project-main h3 {
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-main h3 {
+  transform: translateX(4px);
+}
+
+.project-action {
+  transition: transform 0.3s ease;
+}
+
+.project-action:hover {
+  transform: translateX(5px);
+}
+
+.project-arrow {
+  transition: transform 0.3s ease;
+}
+
+.project-action:hover .project-arrow {
+  transform: rotate(45deg);
+}
+
+.project-tech span {
+  transition: transform 0.25s ease;
+}
+
+.project-tech span:hover {
+  transform: translateY(-2px);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .interest-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .project-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .about-photo:hover img {
+    transform: scale(1.02);
+  }
+
+  .project-item:hover .project-image-img {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.skill-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.skill-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.skill-icon svg path {
+  transition: fill 0.3s ease;
+}
+
+.contact-page {
+  background: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-page .about-hero,
+.contact-page .about-interests,
+.contact-page .about-learning {
+  background: transparent;
+  color: inherit;
+}
+
+.contact-page h1,
+.contact-page h2,
+.contact-page h3,
+.contact-page p,
+.contact-page span {
+  color: inherit;
+}
+
+.contact-page .interest-card {
+  background: transparent;
+  border-color: var(--foreground);
+  color: inherit;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-page .interest-card:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.contact-page .interest-card:hover h3,
+.contact-page .interest-card:hover p,
+.contact-page .interest-card:hover span,
+.contact-page .interest-card:hover svg {
+  color: var(--background);
+}
+
+.contact-page .contact-label,
+.contact-page .about-eyebrow {
+  color: var(--foreground);
+}
+
+.contact-page em {
+  color: inherit;
+}
+
+.contact-page .interest-icon {
+  color: inherit;
+}
+
+.contact-page .interest-arrow {
+  color: inherit;
+}
+
+.about.section {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.about.section .section-heading h2,
+.about.section .section-heading span,
+.about.section .about-side span,
+.about.section .about-side p,
+.about.section .about-content h3,
+.about.section .about-content p,
+.about.section .about-info span,
+.about.section .about-info strong,
+.about.section .about-info small {
+  color: var(--foreground) !important;
+  opacity: 1 !important;
+}
+
+.about.section .about-info > div {
+  background: transparent !important;
+  border-color: var(--foreground) !important;
+  color: var(--foreground) !important;
+}
+
+.about.section .about-info > div:hover {
+  background: var(--foreground) !important;
+  color: var(--background) !important;
+}
+
+.about.section .about-info > div:hover span,
+.about.section .about-info > div:hover strong,
+.about.section .about-info > div:hover small {
+  color: var(--background) !important;
+}

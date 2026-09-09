@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Navbar from "../../components/navbar";
 import ThemeCustomizer from "../../components/themecustomizer";
 import Footer from "../../components/footer";
@@ -15,7 +16,7 @@ function Icon({
   size = 24,
   strokeWidth = 2,
   className,
-}: IconProps & { children: React.ReactNode }) {
+}: IconProps & { children: ReactNode }) {
   return (
     <svg
       width={size}
@@ -78,13 +79,7 @@ const contacts = [
     text: "Lihat project dan eksperimen yang saya kerjakan.",
     href: "https://github.com/widya709",
   },
-  {
-    icon: Instagram,
-    label: "INSTAGRAM",
-    title: "@dyamorr",
-    text: "Terhubung dan lihat aktivitas saya di Instagram.",
-    href: "https://instagram.com/dyamorr",
-  },
+  
 ];
 
 export default function KontakPage() {
@@ -96,8 +91,10 @@ export default function KontakPage() {
 
       <main className="inner-page">
         <section className="about-page contact-page">
-          
-          {/* HERO CONTACT */}
+
+          {/* =========================
+              CONTACT HERO
+          ========================= */}
           <section className="about-hero">
             <div className="about-heading">
               <span className="about-eyebrow">
@@ -113,18 +110,21 @@ export default function KontakPage() {
 
             <div className="about-intro">
               <p>
-                Punya project, ide, atau ingin berdiskusi tentang teknologi
-                dan design? Saya terbuka untuk terhubung.
+                Punya project, ide, atau ingin berdiskusi
+                tentang teknologi dan design? Saya terbuka
+                untuk terhubung.
               </p>
 
               <p>
-                Pilih salah satu platform di bawah ini dan mari mulai
-                percakapan.
+                Pilih salah satu platform di bawah ini dan
+                mari mulai percakapan.
               </p>
             </div>
           </section>
 
-          {/* CONTACT OPTIONS */}
+          {/* =========================
+              CONTACT OPTIONS
+          ========================= */}
           <section className="about-interests contact-section">
             <div className="about-section-title">
               <span className="about-eyebrow">
@@ -138,10 +138,11 @@ export default function KontakPage() {
 
             <div className="interest-grid">
               {contacts.map((contact) => {
-                const Icon = contact.icon;
+                const ContactIcon = contact.icon;
 
                 return (
                   <a
+                    key={contact.label}
                     className="interest-card contact-card"
                     href={contact.href}
                     target={
@@ -154,10 +155,9 @@ export default function KontakPage() {
                         ? "noreferrer"
                         : undefined
                     }
-                    key={contact.label}
                   >
                     <div className="interest-icon">
-                      <Icon
+                      <ContactIcon
                         size={22}
                         strokeWidth={1.7}
                       />
@@ -187,7 +187,9 @@ export default function KontakPage() {
             </div>
           </section>
 
-          {/* AVAILABLE FOR */}
+          {/* =========================
+              AVAILABLE FOR
+          ========================= */}
           <section className="about-learning contact-learning">
             <div>
               <span className="about-eyebrow">
