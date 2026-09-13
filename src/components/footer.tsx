@@ -45,9 +45,9 @@ export default function Footer() {
         </div>
 
         <div className="footer-links">
-          <a href="/" onClick={handleHome}>
+          <Link href="/" onClick={handleHome}>
             Home
-          </a>
+          </Link>
 
           <Link href="/tentang">About</Link>
           <Link href="/keahlian">Skills</Link>
@@ -61,14 +61,14 @@ export default function Footer() {
           Designed & Built with Next.js
         </p>
 
-        <a
+        <Link
           href="/"
           className="footer-top"
           onClick={handleBackToTop}
         >
           <span>BACK TO TOP</span>
           <strong>↑</strong>
-        </a>
+        </Link>
       </div>
     </footer>
   );
