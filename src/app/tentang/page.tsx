@@ -1,7 +1,7 @@
 import Navbar from "../../components/navbar";
-import Projects from "../../components/projects";
 import ThemeCustomizer from "../../components/themecustomizer";
 import Footer from "../../components/footer";
+import CounterApresiasi from "../../components/CounterApresiasi";
 
 function Tentang() {
   return (
@@ -9,7 +9,7 @@ function Tentang() {
       <div className="container">
         <div className="section-heading">
           <span>01</span>
-          <h2>About Me</h2>
+          <h1>About Me</h1>
         </div>
 
         <div className="about-layout">
@@ -61,13 +61,14 @@ function Tentang() {
                 <small>Future career</small>
               </div>
             </div>
+
+            <CounterApresiasi />
           </div>
         </div>
       </div>
     </section>
   );
 }
-
 
 export default function TentangPage() {
   return (
@@ -79,7 +80,7 @@ export default function TentangPage() {
         <Tentang />
       </main>
 
-      <Footer />
+      <footer>{null}</footer>
     </>
   );
 }

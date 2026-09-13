@@ -1,9 +1,5 @@
-"use client";
-
 import type { ReactNode } from "react";
-import Navbar from "../../components/navbar";
 import ThemeCustomizer from "../../components/themecustomizer";
-import Footer from "../../components/footer";
 
 type IconProps = {
   size?: number;
@@ -49,14 +45,6 @@ const Github = (props: IconProps) => (
   </Icon>
 );
 
-const Instagram = (props: IconProps) => (
-  <Icon {...props}>
-    <rect width="20" height="20" x="2" y="2" rx="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
-    <path d="M17.5 6.5h.01" />
-  </Icon>
-);
-
 const ArrowUpRight = (props: IconProps) => (
   <Icon {...props}>
     <path d="M7 17 17 7" />
@@ -79,27 +67,18 @@ const contacts = [
     text: "Lihat project dan eksperimen yang saya kerjakan.",
     href: "https://github.com/widya709",
   },
-  
 ];
 
 export default function KontakPage() {
   return (
     <>
-      <Navbar />
-
       <ThemeCustomizer />
 
       <main className="inner-page">
         <section className="about-page contact-page">
-
-          {/* =========================
-              CONTACT HERO
-          ========================= */}
           <section className="about-hero">
             <div className="about-heading">
-              <span className="about-eyebrow">
-                04 / CONTACT
-              </span>
+              <span className="about-eyebrow">04 / CONTACT</span>
 
               <h1>
                 Let&apos;s stay
@@ -122,14 +101,9 @@ export default function KontakPage() {
             </div>
           </section>
 
-          {/* =========================
-              CONTACT OPTIONS
-          ========================= */}
           <section className="about-interests contact-section">
             <div className="about-section-title">
-              <span className="about-eyebrow">
-                GET IN TOUCH
-              </span>
+              <span className="about-eyebrow">GET IN TOUCH</span>
 
               <h2>
                 Choose how you want to reach me.
@@ -168,13 +142,9 @@ export default function KontakPage() {
                         {contact.label}
                       </span>
 
-                      <h3>
-                        {contact.title}
-                      </h3>
+                      <h3>{contact.title}</h3>
 
-                      <p>
-                        {contact.text}
-                      </p>
+                      <p>{contact.text}</p>
                     </div>
 
                     <ArrowUpRight
@@ -187,14 +157,9 @@ export default function KontakPage() {
             </div>
           </section>
 
-          {/* =========================
-              AVAILABLE FOR
-          ========================= */}
           <section className="about-learning contact-learning">
             <div>
-              <span className="about-eyebrow">
-                AVAILABLE FOR
-              </span>
+              <span className="about-eyebrow">AVAILABLE FOR</span>
 
               <h2>
                 Creative projects & collaborations.
@@ -207,11 +172,8 @@ export default function KontakPage() {
               <span>Creative Projects</span>
             </div>
           </section>
-
         </section>
       </main>
-
-      <Footer />
     </>
   );
 }

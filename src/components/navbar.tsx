@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const menuItems = [
   {
@@ -34,6 +34,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +44,6 @@ export default function Navbar() {
     function handleScroll() {
       setScrolled(window.scrollY > 30);
 
-      // Hanya mendeteksi section ketika berada di Home
       if (pathname !== "/") {
         return;
       }
@@ -79,13 +79,11 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    // Jika sedang di Home
     if (pathname === "/") {
       setActive("home");
       return;
     }
 
-    // Jika sedang di halaman lain
     const currentItem = menuItems.find(
       (item) => item.path === pathname
     );
@@ -95,9 +93,38 @@ export default function Navbar() {
     }
   }, [pathname]);
 
-  function handleClick(section: string) {
+  function handleNavigation(
+    event: React.MouseEvent<HTMLAnchorElement>,
+    path: string,
+    section: string
+  ) {
+    event.preventDefault();
+
     setActive(section);
     setOpen(false);
+
+    if (path === "/" && pathname !== "/") {
+      window.location.href = "/";
+      return;
+    }
+
+    if (path === pathname) {
+      if (path === "/") {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      }
+
+      return;
+    }
+
+    document.body.classList.add("page-transition-out");
+
+    setTimeout(() => {
+      router.push(path);
+    }, 300);
   }
 
   return (
@@ -107,17 +134,16 @@ export default function Navbar() {
       }`}
     >
       <div className="navbar-container">
-
-        {/* LOGO */}
         <Link
           href="/"
           className="logo"
-          onClick={() => handleClick("home")}
+          onClick={(event) =>
+            handleNavigation(event, "/", "home")
+          }
         >
           PORT<span>FOLIO.</span>
         </Link>
 
-        {/* NAVIGATION */}
         <nav
           className={`nav-menu ${
             open ? "active" : ""
@@ -136,8 +162,12 @@ export default function Navbar() {
                     ? "active-link"
                     : ""
                 }
-                onClick={() =>
-                  handleClick(item.section)
+                onClick={(event) =>
+                  handleNavigation(
+                    event,
+                    item.path,
+                    item.section
+                  )
                 }
               >
                 <span>{item.label}</span>
@@ -150,9 +180,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* RIGHT */}
         <div className="navbar-right">
-
           <span className="navbar-status">
             <i></i>
             Available
@@ -170,7 +198,6 @@ export default function Navbar() {
             <span></span>
             <span></span>
           </button>
-
         </div>
       </div>
     </header>

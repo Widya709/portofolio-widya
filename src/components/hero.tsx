@@ -3,11 +3,14 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="home" className="hero">
+    <section
+      id="home"
+      className="hero min-h-screen w-full overflow-hidden"
+    >
       <div className="hero-glow hero-glow-one"></div>
       <div className="hero-glow hero-glow-two"></div>
 
-      <div className="hero-container">
+      <div className="hero-container mx-auto flex w-full max-w-[1400px]">
         <div className="hero-content">
           <div className="hero-label-wrapper hero-reveal hero-delay-1">
             <span className="hero-label-line"></span>
@@ -30,12 +33,18 @@ export default function Hero() {
             responsif, interaktif, dan memiliki pengalaman pengguna yang baik.
           </p>
 
-          <div className="hero-buttons hero-reveal hero-delay-5">
-            <Link href="/proyek" className="btn btn-primary">
+          <div className="hero-buttons hero-reveal hero-delay-5 flex flex-wrap">
+            <Link
+              href="/proyek"
+              className="btn btn-primary transition-transform duration-300 hover:-translate-y-1"
+            >
               Lihat Project <span>↗</span>
             </Link>
 
-            <Link href="/kontak" className="btn btn-secondary">
+            <Link
+              href="/kontak"
+              className="btn btn-secondary transition-transform duration-300 hover:-translate-y-1"
+            >
               Hubungi Saya <span>↗</span>
             </Link>
           </div>
@@ -49,13 +58,14 @@ export default function Hero() {
         <div className="hero-visual hero-reveal hero-delay-3">
           <div className="hero-image-shadow"></div>
 
-          <div className="hero-image">
+          <div className="hero-image overflow-hidden">
             <Image
-              src="/profile.jpg.jpg"
+              src="/profile.jpg"
               alt="Foto profil Widya Aulia"
               width={480}
               height={580}
               priority
+              className="h-auto w-full object-cover"
             />
           </div>
 
@@ -74,8 +84,6 @@ export default function Hero() {
           <div className="hero-number">01</div>
         </div>
       </div>
-
-      
     </section>
   );
 }
