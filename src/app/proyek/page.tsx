@@ -1,8 +1,8 @@
 import Link from "next/link";
 import ThemeCustomizer from "../../components/themecustomizer";
+import Footer from "../../components/footer";
 import CardProyek from "../../components/CardProyek";
-import { supabase } from "../../../lib/supabase";
-import type { Proyek } from "../../data/projects";
+import { supabase } from "@/lib/supabase";
 
 interface ProyekPageProps {
   searchParams: Promise<{
@@ -10,44 +10,37 @@ interface ProyekPageProps {
   }>;
 }
 
-interface SupabaseProyek {
-  id: number;
-  judul: string;
-  kategori: string;
-  deskripsi: string;
-  teknologi: string;
-  gambar: string;
-  link: string | null;
-}
-
 export default async function ProyekPage({
   searchParams,
 }: ProyekPageProps) {
   const { category } = await searchParams;
 
-  const { data, error } = await supabase
+  // 1. Ambil data dari Supabase
+  const { data: rawProyek, error } = await supabase
     .from("proyek")
-    .select("*")
-    .order("id", { ascending: true });
+    .select("*");
 
   if (error) {
-    console.error("Gagal mengambil data proyek:", error);
+    console.error("Gagal mengambil data dari Supabase:", error.message);
   }
 
-  const daftarProyek: Proyek[] = (data as SupabaseProyek[] | null)?.map(
-    (project) => ({
-      id: String(project.id),
-      judul: project.judul,
-      kategori: project.kategori,
-      deskripsiSingkat: project.deskripsi,
-      deskripsiLengkap: project.deskripsi,
-      teknologi: project.teknologi
-        ? project.teknologi.split(",").map((item) => item.trim())
-        : [],
-      gambar: project.gambar,
-    })
-  ) ?? [];
+  // 2. Format data agar cocok dengan props CardProyek & struktur lama
+  const daftarProyek = (rawProyek || []).map((item: any) => ({
+    id: String(item.id),
+    judul: item.judul || "",
+    kategori: item.kategori || "",
+    deskripsiSingkat: item.deskripsi || "",
+    deskripsiLengkap: item.deskripsi || "",
+    teknologi: item.teknologi
+      ? Array.isArray(item.teknologi)
+        ? item.teknologi
+        : String(item.teknologi).split(",").map((t: string) => t.trim())
+      : [],
+    gambar: item.gambar || "/placeholder.jpg",
+    link: item.link || "#",
+  }));
 
+  // 3. Filter berdasarkan kategori dari URL searchParams
   const filteredProjects = category
     ? daftarProyek.filter(
         (project) =>
@@ -56,10 +49,7 @@ export default async function ProyekPage({
     : daftarProyek;
 
   const categories = [
-    {
-      label: "ALL",
-      value: "",
-    },
+    { label: "ALL", value: "" },
     {
       label: "WEB",
       value: "full stack application",
@@ -138,6 +128,8 @@ export default async function ProyekPage({
           </div>
         </section>
       </main>
+
+      <footer>{null}</footer>
     </>
   );
 }
