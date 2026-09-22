@@ -1,8 +1,8 @@
 import Link from "next/link";
 import ThemeCustomizer from "../../components/themecustomizer";
-import Footer from "../../components/footer";
 import CardProyek from "../../components/CardProyek";
-import { daftarProyek } from "../../data/projects";
+import { supabase } from "../../../lib/supabase";
+import type { Proyek } from "../../data/projects";
 
 interface ProyekPageProps {
   searchParams: Promise<{
@@ -10,21 +10,56 @@ interface ProyekPageProps {
   }>;
 }
 
+interface SupabaseProyek {
+  id: number;
+  judul: string;
+  kategori: string;
+  deskripsi: string;
+  teknologi: string;
+  gambar: string;
+  link: string | null;
+}
+
 export default async function ProyekPage({
   searchParams,
 }: ProyekPageProps) {
   const { category } = await searchParams;
 
+  const { data, error } = await supabase
+    .from("proyek")
+    .select("*")
+    .order("id", { ascending: true });
+
+  if (error) {
+    console.error("Gagal mengambil data proyek:", error);
+  }
+
+  const daftarProyek: Proyek[] = (data as SupabaseProyek[] | null)?.map(
+    (project) => ({
+      id: String(project.id),
+      judul: project.judul,
+      kategori: project.kategori,
+      deskripsiSingkat: project.deskripsi,
+      deskripsiLengkap: project.deskripsi,
+      teknologi: project.teknologi
+        ? project.teknologi.split(",").map((item) => item.trim())
+        : [],
+      gambar: project.gambar,
+    })
+  ) ?? [];
+
   const filteredProjects = category
     ? daftarProyek.filter(
         (project) =>
-          project.kategori.toLowerCase() ===
-          category.toLowerCase()
+          project.kategori.toLowerCase() === category.toLowerCase()
       )
     : daftarProyek;
 
   const categories = [
-    { label: "ALL", value: "" },
+    {
+      label: "ALL",
+      value: "",
+    },
     {
       label: "WEB",
       value: "full stack application",
@@ -103,8 +138,6 @@ export default async function ProyekPage({
           </div>
         </section>
       </main>
-
-      <footer>{null}</footer>
     </>
   );
 }

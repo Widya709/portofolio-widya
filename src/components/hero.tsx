@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="hero-glow hero-glow-one"></div>
       <div className="hero-glow hero-glow-two"></div>
 
-      <div className="hero-container mx-auto flex w-full max-w-[1400px]">
+      <div className="hero-container mx-auto flex w-full max-w-350">
         <div className="hero-content">
           <div className="hero-label-wrapper hero-reveal hero-delay-1">
             <span className="hero-label-line"></span>

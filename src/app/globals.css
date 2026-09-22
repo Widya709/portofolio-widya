@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
 :root{--bg: #f5faff; --bg-soft: #eaf6fd; --surface: #ffffff; --surface-blue: #e1f3fc; --text: #183246; --text-soft: #647d8e; --blue: #a9d9ef; --blue-strong: #72b8dc; --blue-light: #d5effb; --blue-dark: #315d78; --border: rgba(82, 145, 177, 0.16); --shadow: 0 20px 60px rgba(65, 137, 174, 0.12); --radius: 24px; --nav-height: 78px;}
 html[data-theme="dark"]{--bg: #09131c; --bg-soft: #0d1b26; --surface: #12232f; --surface-blue: #183747; --text: #edf8fd; --text-soft: #9cb3c1; --blue: #9bd9f3; --blue-strong: #78c4e8; --blue-light: #23495d; --blue-dark: #b9e6f9; --border: rgba(155, 217, 243, 0.14); --shadow: 0 25px 70px rgba(0, 0, 0, 0.32);}
 @media (prefers-color-scheme: dark){
