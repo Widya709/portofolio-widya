@@ -11,7 +11,7 @@ export const contentType = "image/png";
 export default function Image() {
   const imageUrl = new URL(
     ogImage.src,
-    "http://localhost:3000"
+    "https://portofolio-widya-nine.vercel.app"
   ).toString();
 
   return new ImageResponse(
