@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Proyek } from "../data/projects";
 
@@ -14,9 +15,11 @@ export default function CardProyek({ proyek }: CardProyekProps) {
 
       <div className="project-visual">
         <div className="project-image">
-          <img
+          <Image
             src={proyek.gambar}
-            alt={proyek.judul}
+            alt={`Gambar proyek ${proyek.judul}`}
+            width={800}
+            height={600}
             className="project-image-img"
           />
         </div>

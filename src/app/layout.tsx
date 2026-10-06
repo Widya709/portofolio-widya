@@ -4,8 +4,27 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export const metadata: Metadata = {
-  title: "Widya Aulia | Portfolio",
-  description: "Personal portfolio of Widya Aulia",
+  metadataBase: new URL(
+    "https://portofolio-widya-nine.vercel.app"
+  ),
+
+  title: {
+    default: "Widya Aulia | Portfolio",
+    template: "%s | Widya Aulia",
+  },
+
+  description:
+    "Portfolio Widya Aulia, siswa Rekayasa Perangkat Lunak yang berfokus pada web development, UI/UX, dan pengembangan aplikasi digital.",
+
+  openGraph: {
+    title: "Widya Aulia | Portfolio",
+    description:
+      "Portfolio Widya Aulia, siswa Rekayasa Perangkat Lunak yang berfokus pada web development, UI/UX, dan pengembangan aplikasi digital.",
+    url: "https://portofolio-widya-nine.vercel.app",
+    siteName: "Widya Aulia | Portfolio",
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

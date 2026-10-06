@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ThemeCustomizer from "../../../components/themecustomizer";
@@ -41,9 +42,11 @@ export default async function DetailProyekPage({
 
               <div className="project-visual">
                 <div className="project-image">
-                  <img
+                  <Image
                     src={proyek.gambar}
-                    alt={proyek.judul}
+                    alt={`Gambar proyek ${proyek.judul}`}
+                    width={800}
+                    height={600}
                     className="project-image-img"
                   />
                 </div>
