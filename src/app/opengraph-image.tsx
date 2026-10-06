@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import ogImage from "./og-image.png";
 
 export const size = {
   width: 1200,
@@ -9,25 +8,48 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Image() {
-  const imageUrl = new URL(
-    ogImage.src,
-    "http://localhost:3000"
-  ).toString();
-
   return new ImageResponse(
     (
       <div
         style={{
-          width: 1200,
-          height: 630,
+          width: "100%",
+          height: "100%",
           display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#F8F3EA",
+          color: "#3A2F2A",
+          fontFamily: "sans-serif",
         }}
       >
-        <img
-          src={imageUrl}
-          width={1200}
-          height={630}
-        />
+        <div
+          style={{
+            fontSize: 72,
+            fontWeight: 700,
+          }}
+        >
+          Widya Aulia
+        </div>
+
+        <div
+          style={{
+            fontSize: 36,
+            marginTop: 20,
+          }}
+        >
+          Portfolio
+        </div>
+
+        <div
+          style={{
+            fontSize: 24,
+            marginTop: 30,
+            color: "#B08D57",
+          }}
+        >
+          Software Engineering Student
+        </div>
       </div>
     ),
     {
