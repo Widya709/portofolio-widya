@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { supabase } from "@/lib/supabase";
 
-const baseUrl = "https://portofolio-widya-nine.vercel.app";
+const baseUrl = "http://localhost:3000";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { data: proyek, error } = await supabase
