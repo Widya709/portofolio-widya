@@ -1,5 +1,8 @@
 import { ImageResponse } from "next/og";
-import ogImage from "./og-image.png";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+export const runtime = "nodejs";
 
 export const size = {
   width: 1200,
@@ -8,11 +11,17 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default function Image() {
-  const imageUrl = new URL(
-    ogImage.src,
-    "https://portofolio-widya-nine.vercel.app"
-  ).toString();
+export default async function Image() {
+  const imagePath = join(
+    process.cwd(),
+    "src",
+    "app",
+    "og-image.png"
+  );
+
+  const imageBuffer = await readFile(imagePath);
+
+  const imageBase64 = imageBuffer.toString("base64");
 
   return new ImageResponse(
     (
@@ -24,7 +33,7 @@ export default function Image() {
         }}
       >
         <img
-          src={imageUrl}
+          src={`data:image/png;base64,${imageBase64}`}
           width={1200}
           height={630}
         />
