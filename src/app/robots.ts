@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://portofolio-widya-nine.vercel.app";
+const baseUrl = "http://localhost:3000";
 
 export default function robots(): MetadataRoute.Robots {
   return {
