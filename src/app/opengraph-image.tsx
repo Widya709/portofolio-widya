@@ -18,9 +18,8 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#F8F3EA",
+          backgroundColor: "#F8F3EA",
           color: "#3A2F2A",
-          fontFamily: "sans-serif",
         }}
       >
         <div
@@ -36,6 +35,7 @@ export default function Image() {
           style={{
             fontSize: 36,
             marginTop: 20,
+            color: "#B08D57",
           }}
         >
           Portfolio
@@ -43,9 +43,8 @@ export default function Image() {
 
         <div
           style={{
-            fontSize: 24,
-            marginTop: 30,
-            color: "#B08D57",
+            fontSize: 26,
+            marginTop: 24,
           }}
         >
           Software Engineering Student
