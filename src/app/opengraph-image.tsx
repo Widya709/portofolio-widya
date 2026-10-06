@@ -1,8 +1,5 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-
-export const runtime = "nodejs";
+import ogImage from "./og-image.png";
 
 export const size = {
   width: 1200,
@@ -11,17 +8,11 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image() {
-  const imagePath = join(
-    process.cwd(),
-    "src",
-    "app",
-    "og-image.png"
-  );
-
-  const imageBuffer = await readFile(imagePath);
-
-  const imageBase64 = imageBuffer.toString("base64");
+export default function Image() {
+  const imageUrl = new URL(
+    ogImage.src,
+    "http://localhost:3000"
+  ).toString();
 
   return new ImageResponse(
     (
@@ -33,7 +24,7 @@ export default async function Image() {
         }}
       >
         <img
-          src={`data:image/png;base64,${imageBase64}`}
+          src={imageUrl}
           width={1200}
           height={630}
         />
