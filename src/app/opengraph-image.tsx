@@ -1,14 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 export const alt = "Widya Aulia Portfolio";
-
 export const size = {
   width: 1200,
   height: 630,
 };
-
 export const contentType = "image/png";
 
 export default function Image() {
@@ -31,6 +27,7 @@ export default function Image() {
           style={{
             fontSize: 28,
             letterSpacing: "8px",
+            fontWeight: 500,
           }}
         >
           PORTFOLIO
@@ -58,7 +55,8 @@ export default function Image() {
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   );
 }
