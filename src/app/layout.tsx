@@ -1,36 +1,45 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-
-const siteUrl = "https://widya-aulia.my.id";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://widya-aulia.my.id"),
 
-  title: {
-    default: "Widya Aulia Website Profil & Portfolio",
-    template: "%s | Widya Aulia",
-  },
+  title: "Widya Aulia — Portfolio",
 
   description:
-    "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
+    "Portfolio Widya Aulia — Software Engineering Student interested in Web Development and UI/UX.",
 
   openGraph: {
-    title: "Widya Aulia Website Profil & Portfolio",
+    title: "Widya Aulia — Portfolio",
+
     description:
-      "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    url: siteUrl,
+      "Software Engineering Student — Web Development & UI/UX.",
+
+    url: "https://widya-aulia.my.id",
+
     siteName: "Widya Aulia Portfolio",
-    locale: "id_ID",
+
     type: "website",
+
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Widya Aulia Portfolio",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Widya Aulia Website Profil & Portfolio",
+
+    title: "Widya Aulia — Portfolio",
+
     description:
-      "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
+      "Software Engineering Student — Web Development & UI/UX.",
+
+    images: ["/og-image.png"],
   },
 };
 
@@ -40,12 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
