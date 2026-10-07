@@ -1,36 +1,20 @@
 import type { Metadata } from "next";
-import { DM_Sans, Space_Grotesk } from "next/font/google";
-
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portofolio-widya-nine.vercel.app"),
+  metadataBase: new URL("https://nama-project-kalian.vercel.app"), // Sesuaikan dengan URL Vercel kamu
   title: {
-    default: "Widya Aulia - Website Profil & Portfolio",
-    template: "%s | Widya Aulia",
+    default: "Nama Kalian Website Profil & Portfolio",
+    template: "%s | Nama Kalian",
   },
   description:
-    "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan dari jurusan Rekayasa Perangkat Lunak yang berfokus pada web development dan UI/UX.",
+    "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
   openGraph: {
-    title: "Widya Aulia - Website Profil & Portfolio",
+    title: "Nama Kalian Website Profil & Portfolio",
     description:
-      "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
+      "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
     type: "website",
   },
 };
@@ -42,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body
-        className={`${dmSans.variable} ${spaceGrotesk.variable}`}
-      >
+      <body>
         <Navbar />
         {children}
         <Footer />
