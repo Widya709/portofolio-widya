@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Widya Aulia - Portfolio";
+export const alt = "Widya Aulia - Personal Portfolio";
 export const size = {
   width: 1200,
   height: 630,
@@ -20,32 +20,52 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#DCEEFF",
-          color: "#29445C",
+          background:
+            "linear-gradient(135deg, #dff3ff 0%, #f7fbff 50%, #eaf6ff 100%)",
+          color: "#102a43",
           fontFamily: "Arial",
         }}
       >
         <div
           style={{
-            fontSize: 72,
-            fontWeight: 700,
-            letterSpacing: "4px",
+            fontSize: 32,
+            fontWeight: 600,
+            color: "#4b7ea8",
+            marginBottom: 24,
           }}
         >
-          WIDYA AULIA
+          PERSONAL PORTFOLIO
         </div>
 
         <div
           style={{
-            marginTop: 20,
-            fontSize: 28,
-            fontWeight: 400,
-            letterSpacing: "10px",
-            color: "#6E9FC8",
+            fontSize: 76,
+            fontWeight: 700,
+            letterSpacing: "-2px",
           }}
         >
-          PORTFOLIO
+          Widya Aulia
         </div>
+
+        <div
+          style={{
+            fontSize: 32,
+            marginTop: 24,
+            color: "#52738d",
+          }}
+        >
+          Web Development • UI/UX Design
+        </div>
+
+        <div
+          style={{
+            width: 120,
+            height: 6,
+            borderRadius: 10,
+            background: "#79b9df",
+            marginTop: 36,
+          }}
+        />
       </div>
     ),
     {

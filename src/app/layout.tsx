@@ -3,43 +3,36 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-const siteUrl = "https://portofolio-widya-nine.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-
+  metadataBase: new URL("https://widya-aulia.my.id"),
   title: {
-    default: "Widya Aulia Website Profil & Portfolio",
+    default: "Widya Aulia - Website Profil & Portfolio",
     template: "%s | Widya Aulia",
   },
-
   description:
-    "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-
+    "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
   openGraph: {
-    title: "Widya Aulia Website Profil & Portfolio",
+    title: "Widya Aulia - Website Profil & Portfolio",
     description:
-      "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    url: siteUrl,
+      "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
+    url: "https://widya-aulia.my.id",
     siteName: "Widya Aulia Portfolio",
     type: "website",
-
     images: [
       {
-        url: `${siteUrl}/opengraph-image`,
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Widya Aulia Portfolio",
+        alt: "Widya Aulia - Personal Portfolio",
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "Widya Aulia Website Profil & Portfolio",
+    title: "Widya Aulia - Website Profil & Portfolio",
     description:
-      "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    images: [`${siteUrl}/opengraph-image`],
+      "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
+    images: ["/opengraph-image"],
   },
 };
 
