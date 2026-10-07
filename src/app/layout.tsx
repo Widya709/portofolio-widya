@@ -22,13 +22,8 @@ export const metadata: Metadata = {
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
     url: siteUrl,
     siteName: "Widya Aulia Portfolio",
+    locale: "id_ID",
     type: "website",
-    images: [
-      {
-        url: `${siteUrl}/profile.jpg`,
-        alt: "Widya Aulia",
-      },
-    ],
   },
 
   twitter: {
@@ -36,7 +31,6 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    images: [`${siteUrl}/profile.jpg`],
   },
 };
 
