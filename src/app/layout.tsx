@@ -3,8 +3,10 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
+const siteUrl = "https://widya-aulia.my.id";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://widya-aulia.my.id"),
+  metadataBase: new URL(siteUrl),
 
   title: {
     default: "Widya Aulia Website Profil & Portfolio",
@@ -18,15 +20,13 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    url: "https://widya-aulia.my.id",
+    url: siteUrl,
     siteName: "Widya Aulia Portfolio",
     type: "website",
     images: [
       {
-        url: "https://widya-aulia.my.id/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Widya Aulia Portfolio",
+        url: `${siteUrl}/profile.jpg`,
+        alt: "Widya Aulia",
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    images: ["https://widya-aulia.my.id/og-image.png"],
+    images: [`${siteUrl}/profile.jpg`],
   },
 };
 
