@@ -62,9 +62,10 @@ export default function Hero() {
             <Image
               src="/profile.jpg"
               alt="Foto profil Widya Aulia"
-              width={480}
-              height={580}
+              width={382}
+              height={509}
               priority
+              sizes="382px"
               className="h-auto w-full object-cover"
             />
           </div>
