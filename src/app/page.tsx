@@ -1,10 +1,15 @@
+import dynamic from "next/dynamic";
+
 import Hero from "../components/hero";
 import About from "../components/about";
 import Skills from "../components/skills";
 import Projects from "../components/projects";
 import Contact from "../components/contact";
-import ThemeCustomizer from "../components/themecustomizer";
 import ScrollReveal from "../components/scrollreveal";
+
+const ThemeCustomizer = dynamic(
+  () => import("../components/themecustomizer")
+);
 
 export default function Home() {
   return (

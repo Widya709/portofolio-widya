@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
+
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portofolio-widya-nine.vercel.app"),
@@ -26,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body>
+      <body
+        className={`${dmSans.variable} ${spaceGrotesk.variable}`}
+      >
         <Navbar />
         {children}
         <Footer />
