@@ -3,6 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt = "Widya Aulia Portfolio";
+
 export const size = {
   width: 1200,
   height: 630,
@@ -21,16 +22,15 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#DCEEFF",
+          backgroundColor: "#DCEEFF",
           color: "#294E70",
-          fontFamily: "sans-serif",
+          fontFamily: "Arial",
         }}
       >
         <div
           style={{
             fontSize: 28,
             letterSpacing: "8px",
-            marginBottom: 20,
           }}
         >
           PORTFOLIO
@@ -40,7 +40,7 @@ export default function Image() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            letterSpacing: "3px",
+            marginTop: 20,
           }}
         >
           WIDYA AULIA
