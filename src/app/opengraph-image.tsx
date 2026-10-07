@@ -7,7 +7,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -18,16 +18,16 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#DCEEFF",
+          background: "#DCEEFF",
           color: "#294E70",
-          fontFamily: "Arial",
         }}
       >
         <div
           style={{
-            fontSize: 28,
+            display: "flex",
+            fontSize: 30,
             letterSpacing: "8px",
-            fontWeight: 500,
+            marginBottom: "24px",
           }}
         >
           PORTFOLIO
@@ -35,9 +35,9 @@ export default function Image() {
 
         <div
           style={{
-            fontSize: 72,
+            display: "flex",
+            fontSize: 76,
             fontWeight: 700,
-            marginTop: 20,
           }}
         >
           WIDYA AULIA
@@ -45,9 +45,10 @@ export default function Image() {
 
         <div
           style={{
+            display: "flex",
             fontSize: 26,
-            letterSpacing: "5px",
-            marginTop: 20,
+            letterSpacing: "4px",
+            marginTop: "24px",
           }}
         >
           SOFTWARE ENGINEERING STUDENT

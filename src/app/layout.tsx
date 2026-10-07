@@ -7,31 +7,22 @@ export const metadata: Metadata = {
   title: "Widya Aulia | Portfolio",
 
   description:
-    "Widya Aulia — Software Engineering Student, Web Developer and UI/UX Designer.",
+    "Widya Aulia — Software Engineering Student, Web Development & UI/UX.",
 
   openGraph: {
     title: "Widya Aulia | Portfolio",
     description:
-      "Software Engineering Student, Web Developer and UI/UX Designer.",
+      "Widya Aulia — Software Engineering Student, Web Development & UI/UX.",
     url: "https://widya-aulia.my.id",
     siteName: "Widya Aulia Portfolio",
     type: "website",
-    images: [
-      {
-        url: "https://widya-aulia.my.id/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Widya Aulia Portfolio",
-      },
-    ],
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Widya Aulia | Portfolio",
     description:
-      "Software Engineering Student, Web Developer and UI/UX Designer.",
-    images: ["https://widya-aulia.my.id/opengraph-image.png"],
+      "Widya Aulia — Software Engineering Student, Web Development & UI/UX.",
   },
 };
 
