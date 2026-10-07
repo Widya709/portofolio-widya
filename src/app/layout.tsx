@@ -3,8 +3,10 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
+const siteUrl = "https://portofolio-widya-nine.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portofolio-widya-nine.vercel.app"),
+  metadataBase: new URL(siteUrl),
 
   title: {
     default: "Widya Aulia Website Profil & Portfolio",
@@ -18,13 +20,13 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    url: "https://portofolio-widya-nine.vercel.app",
+    url: siteUrl,
     siteName: "Widya Aulia Portfolio",
     type: "website",
 
     images: [
       {
-        url: "/opengraph-image",
+        url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Widya Aulia Portfolio",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    images: ["/opengraph-image"],
+    images: [`${siteUrl}/opengraph-image`],
   },
 };
 
