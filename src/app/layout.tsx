@@ -4,25 +4,17 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://portofolio-widya-nine.vercel.app"
-  ),
-
+  metadataBase: new URL("https://portofolio-widya-nine.vercel.app"),
   title: {
-    default: "Widya Aulia | Portfolio",
+    default: "Widya Aulia - Website Profil & Portfolio",
     template: "%s | Widya Aulia",
   },
-
   description:
-    "Portfolio Widya Aulia, siswa Rekayasa Perangkat Lunak yang berfokus pada web development, UI/UX, dan pengembangan aplikasi digital.",
-
+    "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan dari jurusan Rekayasa Perangkat Lunak yang berfokus pada web development dan UI/UX.",
   openGraph: {
-    title: "Widya Aulia | Portfolio",
+    title: "Widya Aulia - Website Profil & Portfolio",
     description:
-      "Portfolio Widya Aulia, siswa Rekayasa Perangkat Lunak yang berfokus pada web development, UI/UX, dan pengembangan aplikasi digital.",
-    url: "https://portofolio-widya-nine.vercel.app",
-    siteName: "Widya Aulia | Portfolio",
-    locale: "id_ID",
+      "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
     type: "website",
   },
 };

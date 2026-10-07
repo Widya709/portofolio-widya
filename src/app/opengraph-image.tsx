@@ -1,59 +1,41 @@
 import { ImageResponse } from "next/og";
 
-export const size = {
-  width: 1200,
-  height: 630,
-};
-
-export const contentType = "image/png";
-
 export default function Image() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "1200px",
+        height: "630px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        backgroundColor: "#DCEEFF",
+        color: "#29445C",
+        fontFamily: "Arial",
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#F8F3EA",
-          color: "#3A2F2A",
+          fontSize: 72,
+          fontWeight: 700,
+          letterSpacing: "4px",
         }}
       >
-        <div
-          style={{
-            fontSize: 72,
-            fontWeight: 700,
-          }}
-        >
-          Widya Aulia
-        </div>
-
-        <div
-          style={{
-            fontSize: 36,
-            marginTop: 20,
-            color: "#B08D57",
-          }}
-        >
-          Portfolio
-        </div>
-
-        <div
-          style={{
-            fontSize: 26,
-            marginTop: 24,
-          }}
-        >
-          Software Engineering Student
-        </div>
+        WIDYA AULIA
       </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
+
+      <div
+        style={{
+          marginTop: "18px",
+          fontSize: 28,
+          fontWeight: 400,
+          letterSpacing: "10px",
+          color: "#6E9FC8",
+        }}
+      >
+        PORTFOLIO
+      </div>
+    </div>
   );
 }
