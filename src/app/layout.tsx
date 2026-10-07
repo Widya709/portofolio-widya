@@ -18,19 +18,38 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Widya Aulia Website Profil & Portfolio",
+
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
+
     url: siteUrl,
+
     siteName: "Widya Aulia Portfolio",
+
     locale: "id_ID",
+
     type: "website",
+
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Widya Aulia Portfolio",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: "Widya Aulia Website Profil & Portfolio",
+
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
+
+    images: [`${siteUrl}/opengraph-image`],
   },
 };
 
