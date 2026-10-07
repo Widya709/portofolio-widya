@@ -24,14 +24,6 @@ export const metadata: Metadata = {
     siteName: "Widya Aulia Portfolio",
     locale: "id_ID",
     type: "website",
-    images: [
-      {
-        url: "/og-v2.png", // Simpan gambar di public/og-v2.png
-        width: 1200,
-        height: 630,
-        alt: "Widya Aulia Portfolio",
-      },
-    ],
   },
 
   twitter: {
@@ -39,7 +31,6 @@ export const metadata: Metadata = {
     title: "Widya Aulia Website Profil & Portfolio",
     description:
       "Portofolio siswa SMK Rekayasa Perangkat Lunak, dibangun dengan Next.js dan Supabase.",
-    images: ["/og-v2.png"],
   },
 };
 
