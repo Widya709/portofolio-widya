@@ -41,30 +41,42 @@ export default function Navbar() {
   const [active, setActive] = useState("home");
 
   useEffect(() => {
+    let ticking = false;
+
     function handleScroll() {
-      setScrolled(window.scrollY > 30);
+      if (ticking) return;
 
-      if (pathname !== "/") {
-        return;
-      }
+      ticking = true;
 
-      const sections = menuItems
-        .map((item) => document.getElementById(item.section))
-        .filter(Boolean);
+      requestAnimationFrame(() => {
+        const isScrolled = window.scrollY > 30;
 
-      let current = "home";
+        setScrolled((previous) =>
+          previous === isScrolled ? previous : isScrolled
+        );
 
-      sections.forEach((section) => {
-        if (!section) return;
+        if (pathname === "/") {
+          const sections = menuItems
+            .map((item) => document.getElementById(item.section))
+            .filter(
+              (section): section is HTMLElement => section !== null
+            );
 
-        const rect = section.getBoundingClientRect();
+          let current = "home";
 
-        if (rect.top <= 180) {
-          current = section.id;
+          for (const section of sections) {
+            if (section.offsetTop <= window.scrollY + 180) {
+              current = section.id;
+            }
+          }
+
+          setActive((previous) =>
+            previous === current ? previous : current
+          );
         }
-      });
 
-      setActive(current);
+        ticking = false;
+      });
     }
 
     handleScroll();
@@ -191,7 +203,7 @@ export default function Navbar() {
               open ? "open" : ""
             }`}
             type="button"
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen((value) => !value)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
