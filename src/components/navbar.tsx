@@ -41,45 +41,63 @@ export default function Navbar() {
   const [active, setActive] = useState("home");
 
   useEffect(() => {
-    let ticking = false;
+    if (pathname !== "/") return;
 
-    function handleScroll() {
-      if (ticking) return;
+    const sections = menuItems
+      .map((item) => document.getElementById(item.section))
+      .filter((section): section is HTMLElement => section !== null);
 
-      ticking = true;
+    if (!sections.length) return;
 
-      requestAnimationFrame(() => {
-        const isScrolled = window.scrollY > 30;
-
-        setScrolled((previous) =>
-          previous === isScrolled ? previous : isScrolled
-        );
-
-        if (pathname === "/") {
-          const sections = menuItems
-            .map((item) => document.getElementById(item.section))
-            .filter(
-              (section): section is HTMLElement => section !== null
-            );
-
-          let current = "home";
-
-          for (const section of sections) {
-            if (section.offsetTop <= window.scrollY + 180) {
-              current = section.id;
-            }
-          }
-
-          setActive((previous) =>
-            previous === current ? previous : current
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              a.boundingClientRect.top -
+              b.boundingClientRect.top
           );
-        }
 
-        ticking = false;
-      });
+        if (visibleSections.length > 0) {
+          setActive(visibleSections[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      const currentItem = menuItems.find(
+        (item) => item.path === pathname
+      );
+
+      if (currentItem) {
+        setActive(currentItem.section);
+      }
+
+      setScrolled(false);
+      return;
     }
 
-    handleScroll();
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    setScrolled(window.scrollY > 30);
 
     window.addEventListener("scroll", handleScroll, {
       passive: true,
@@ -88,21 +106,6 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname]);
-
-  useEffect(() => {
-    if (pathname === "/") {
-      setActive("home");
-      return;
-    }
-
-    const currentItem = menuItems.find(
-      (item) => item.path === pathname
-    );
-
-    if (currentItem) {
-      setActive(currentItem.section);
-    }
   }, [pathname]);
 
   function handleNavigation(
@@ -203,7 +206,7 @@ export default function Navbar() {
               open ? "open" : ""
             }`}
             type="button"
-            onClick={() => setOpen((value) => !value)}
+            onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >

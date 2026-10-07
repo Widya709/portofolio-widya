@@ -1,40 +1,56 @@
-import dynamic from "next/dynamic";
+import type { Metadata } from "next";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 
-import Hero from "../components/hero";
-import About from "../components/about";
-import Skills from "../components/skills";
-import Projects from "../components/projects";
-import Contact from "../components/contact";
-import ScrollReveal from "../components/scrollreveal";
+import "./globals.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
-const ThemeCustomizer = dynamic(
-  () => import("../components/themecustomizer")
-);
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
-export default function Home() {
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://portofolio-widya-nine.vercel.app"
+  ),
+  title: {
+    default: "Widya Aulia - Website Profil & Portfolio",
+    template: "%s | Widya Aulia",
+  },
+  description:
+    "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan dari jurusan Rekayasa Perangkat Lunak yang berfokus pada web development dan UI/UX.",
+  openGraph: {
+    title: "Widya Aulia - Website Profil & Portfolio",
+    description:
+      "Portofolio Widya Aulia, siswa SMKN 1 Pasuruan yang berfokus pada web development dan UI/UX.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <>
-      <ThemeCustomizer />
-
-      <main>
-        <Hero />
-
-        <ScrollReveal>
-          <About />
-        </ScrollReveal>
-
-        <ScrollReveal delay={100}>
-          <Skills />
-        </ScrollReveal>
-
-        <ScrollReveal delay={150}>
-          <Projects />
-        </ScrollReveal>
-
-        <ScrollReveal delay={200}>
-          <Contact />
-        </ScrollReveal>
-      </main>
-    </>
+    <html lang="id">
+      <body
+        className={`${dmSans.variable} ${spaceGrotesk.variable}`}
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }

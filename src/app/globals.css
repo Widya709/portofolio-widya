@@ -319,7 +319,7 @@ img{max-width: 100%; display: block;}
 .hero-floating-card small{color: var(--text-soft); font-size: 7px; font-weight: 700; letter-spacing: 0.14em;}
 .hero-floating-card strong{color: var(--text); font-size: 10px; letter-spacing: 0.08em;}
 .hero-number{position: absolute; right: -12px; top: 45%; color: var(--blue-dark); font-family: "Space Grotesk", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; writing-mode: vertical-rl;}
-.hero-reveal{opacity: 0; transform: translateY(30px); animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;}
+{opacity: 0; transform: translateY(30px); animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;}
 .hero-delay-1{animation-delay: 0.15s;}
 .hero-delay-2{animation-delay: 0.3s;}
 .hero-delay-3{animation-delay: 0.45s;}
@@ -348,7 +348,7 @@ img{max-width: 100%; display: block;}
 }
 @keyframes textShine{
   to{background-position: 200% center;}
-}
+}.hero-reveal
 @keyframes scrollLine{
   0%{left: -100%;}
   50%{left: 0;}
